@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+
+@mixin flex{
+    display: flex;
+}
+$primary-color :  #1e1e2f;
+$full-black: black;
+$full-white : whitesmoke;
+$good-green : rgb(163, 221, 163);
+
+body{
+    font-size: 14px;
+    color: $primary-color;
+    font-family: 'Inria Sans';
+
+        
+    .header{
+        @include flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 0;
+        padding: 20px 50px;
+        .header-item{
+            @include flex;
+            align-items: flex-start;
+            img{
+                height: 40px   
+            }
+            ul{
+                @include flex;
+                justify-content: space-between;
+                list-style-type:none;
+                font-size: 1.2rem;
+                li:hover{
+                    cursor: pointer;
+                }
+                .button:hover{
+                    background-color: $primary-color;
+                }
+            }
+            .options{
+                width: 40vw;
+            }
+            .conn{
+                width: 17.5vw;
+                @include flex;
+                justify-content: space-between;
+                align-items: center;       
+                .button{
+                    background-color: $full-black;
+                    color: $full-white;
+                    padding: 20px 35px;
+                    border-radius: 50px;
+                }
+            }  
+        }
+    }
+
+    .main{
+        @include flex;
+        margin: 0 20px;
+        justify-content: space-between;
+        .left{
+            @include flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 4;
+            ul{
+                list-style-type: none;
+                font-weight: 600;
+                font-size: 5rem;
+                line-height: 1;
+            }
+            .bar{
+                margin-left: 50px ;
+                input{
+                    height: 80px;
+                    border: solid 1px white;
+                }
+                input[type="text"]{
+                    box-shadow: 0px 0px 48px 5px rgba(0,0,0,0.14);
+                    padding: 0 10px 0 50px;
+                
+                    outline: none;
+                    
+                }
+                input[type="button"]{
+                    height: 100%;
+                    width: 80px;
+                    background-color: rgb(163, 221, 163);
+                    border-color: rgb(163, 221, 163);
+                    color: $full-black;
+                    font-weight: bold;
+                    font-size: 20px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                
+            }
+        }
+        .right{
+            @include flex();
+            justify-content: space-between;
+            .card-image{
+                color: $full-white;
+                width: 30%;
+                background-position: center top;
+                background-size: cover;
+                border-radius: 1rem;
+                transition: width 300ms ease;
+                // box-shadow: inset 0px -91px 184px -121px rgba(0,0,0.20,1);
+                
+                position: relative;
+                .vertical{
+                    position: absolute;
+                    transform: rotate(-90deg);
+                    left: 0px;
+                    top: 400px;
+                    font-size: 24px;
+                    font-weight: 900;
+                }
+                .topics{
+                    @include flex;
+                    margin: 10px 10px;
+                    flex-direction: column;
+                    visibility: hidden;
+                    left: 40px;
+                    top: 400px;
+                    font-size: 20px;
+                }
+
+                &:hover{
+                    box-shadow:none;
+                    cursor: pointer;
+                    width: 50%;
+                    margin: 0 10px;
+                    
+                    .vertical{
+                        visibility: hidden;
+                    }
+                    .topics{
+                        visibility: visible;
+                        font-weight: bold;
+                        color: $full-black;
+                    }
+                }
+
+                overflow: hidden;
+                &::before{
+                    content: '';
+                    background: linear-gradient(0deg, rgba(2,0,36,0.6502976190476191) 0%, rgba(0,0,0,0.0032387955182072714) 49%);
+                    inset: 0;
+                    position: absolute;
+                }
+            }
+            
+            flex: 7;
+        }
+        
+    }
+}
